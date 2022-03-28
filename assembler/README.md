@@ -1,8 +1,8 @@
-## TMA-32 Assembly Language Spec
+# TMA-32 Assembly Language Spec
 
 In TMA-32 Assembly, RAM is divided into 32-bit words, so (ptr+1) starts four eight-bit bytes after (ptr).
 
-# Supported Instructions
+## Supported Instructions
 
 `jmp <address>`: sets the instruction pointer to `<address>`.
 
@@ -28,7 +28,7 @@ In TMA-32 Assembly, RAM is divided into 32-bit words, so (ptr+1) starts four eig
 
 TODO come up with more instructions...
 
-# Assembler Dircetives
+## Assembler Dircetives
 
 `#include "path"`: copy-pastes the contents of the file `path` at the specified point.
 
