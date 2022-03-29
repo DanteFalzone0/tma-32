@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  tma32::vm machine(argv[1]);
+  tma32::VirtualMachine machine(argv[1]);
 
   return 0;
 }

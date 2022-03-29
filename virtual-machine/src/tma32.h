@@ -8,7 +8,7 @@
 namespace tma32 {
 
 // class representing the TMA-32 Virtual Machine
-class vm {
+class VirtualMachine {
 
 private:
   // RAM
@@ -24,7 +24,7 @@ private:
   std::array<uint32_t,16> registers;
 
 public:
-  vm(const char *file_path);
+  VirtualMachine(const char *file_path);
 
 };
 
