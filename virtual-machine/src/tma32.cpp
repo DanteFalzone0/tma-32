@@ -2,7 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <cstdint>
-#include "tma-32.h"
+#include "tma32.h"
 
 tma32::vm::vm(const char *file_path) {
     auto bytecode_file = std::ifstream(file_path, std::ios::binary);

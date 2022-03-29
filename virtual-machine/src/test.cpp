@@ -1,5 +1,5 @@
 #include <iostream>
-#include "tma-32.h"
+#include "tma32.h"
 
 int main(int argc, char *argv[]) {
   if (argc < 2) {
@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  auto machine = tma32::vm(argv[1]);
+  tma32::vm machine(argv[1]);
 
   return 0;
 }
