@@ -5,13 +5,23 @@
 		<Option title="virtual-machine" />
 		<Option makefile_is_custom="1" />
 		<Option pch_mode="2" />
+		<Option default_target="Release" />
 		<Option compiler="gcc" />
+		<MakeCommands>
+			<Build command="$make -f $makefile tma32" />
+			<CompileFile command="$make -f $makefile $file" />
+			<Clean command="$make -f $makefile clean" />
+			<DistClean command="$make -f $makefile distclean$target" />
+			<AskRebuildNeeded command="$make -q -f $makefile tma32" />
+			<SilentBuild command="$make -f $makefile tma32 &gt; $(CMD_NULL)" />
+		</MakeCommands>
 		<Build>
-			<Target title="Release">
-				<Option output="bin/virtual-machine" prefix_auto="1" extension_auto="1" />
+			<Target title="tma32">
+				<Option output="bin/tma32" prefix_auto="1" extension_auto="1" />
 				<Option object_output="bin/obj/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option parameters="test_file.bin" />
 				<Compiler>
 					<Add option="-O2" />
 				</Compiler>
@@ -33,7 +43,6 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="src/main.cpp" />
-		<Unit filename="src/test.cpp" />
 		<Unit filename="src/tma32.cpp" />
 		<Unit filename="src/tma32.h" />
 		<Extensions />
