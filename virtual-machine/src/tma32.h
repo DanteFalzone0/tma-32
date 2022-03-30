@@ -21,10 +21,10 @@ private:
   uint32_t sp;
 
   // registers
-  std::array<uint32_t,16> registers;
+  std::array<uint32_t, 16> registers;
 
 public:
-  VirtualMachine(const char *file_path);
+  VirtualMachine(const char* file_path);
 
 };
 

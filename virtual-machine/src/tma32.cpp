@@ -4,7 +4,7 @@
 #include <cstdint>
 #include "tma32.h"
 
-tma32::VirtualMachine::VirtualMachine(const char *file_path) {
+tma32::VirtualMachine::VirtualMachine(const char* file_path) {
     auto bytecode_file = std::ifstream(file_path, std::ios::binary);
     uint32_t current_word;
     while (bytecode_file.read(reinterpret_cast<char*>(&current_word), sizeof(current_word))) {
