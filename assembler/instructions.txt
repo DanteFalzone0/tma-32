@@ -1,0 +1,46 @@
+Instruction set
+
+Instructions fit into thirty-two bit words and can have up to five parts. The first four parts
+are part of the first word and the last one is itself a word if the instruction has a
+thirty-two bit operand.
+0xNN|NN|NN|NN 0xNNNNNNNN
+  ^  ^  ^  ^    ^
+  |  |  |  |    |________ thirty-two bit operand
+  |  |  |  |_____________ target resgister
+  |  |  |________________ source register
+  |  |___________________ destination register
+  |______________________ instruction
+
+The destination register is where the output of the instruction is stored. The source register
+is where the "source" data for the instruction is retrieved from; for example, in the
+instruction `addi r1 r2`, which adds the value stored in r2 to r1, r2 is the source register
+and r1 is the instruction register. However, for instructions which act on only one register,
+the selected register is what would be designated the "destination" register in the diagram
+above.
+
+If the instruction performs any kind of jump, the address
+to which control flow should jump is stored in the target register. The thirty-two bit operand,
+or just "the operand" for convenience, is a literal value; for example, in `movl r1
+0xDEADBEEF`, the operand is `0xDEADBEEF`.
+
+Each instruction except for jump instructions will increment the instruction pointer by 1 if it
+doesn't have an operand and by 2 if it does.
+===================================================================================================
+Registers are represented in binary as an 8-bit value corresponding to the number of the register.
+For example, r3 is represented as 0x03, r14 as 0x0E, et cetera. The stack pointer is 0x10 and the
+instruction pointer is 0x11.
+===================================================================================================
+Instructions and their hex values (NN, MM, PP, and XXXXXXXX are placeholder values):
+movl: 41 NN 00 00 XXXXXXXX: moves the 32-bit literal XXXXXXXX into the destination register.
+movr: 42 NN MM 00: moves the value in the source register into the destination register.
+jmp: 43 00 00 NN: set the instruction pointer to what's in the target register.
+jeq: 44 NN MM PP: if the registers NN and MM have equal values, jump to target register's contents.
+jz: 45 NN 00 MM: jump to the target register's contents if register NN equals zero.
+addu: 46 NN MM 00: perform unsigned addition on regs NN and MM storing result in NN.
+addi: 47 NN MM 00: like above but signed.
+addf: 48 NN MM 00: like above but in IEEE-754 floating point.
+prnts: 49 NN 00 00: print the null-terminated string pointed to by register NN.
+prntu: 4A NN 00 00: print the unsigned integer in register NN.
+prnti: 4B NN 00 00: print the signed integer in register NN.
+prntf: 4C NN 00 00: print the IEEE-754 float in register NN.
+prntc: 4D NN 00 00: print the character in register NN.

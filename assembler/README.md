@@ -14,15 +14,15 @@ In TMA-32 Assembly, RAM is divided into 32-bit words, so (ptr+1) starts four eig
 
 `addf <reg1> <reg2> <reg3>`: performs *IEEE-754 floating point* addition on registers `<reg1>` and `<reg2>` storing the result in `<reg3>`.
 
-`prints <register>`: prints the null-terminated string which is pointed to by the value in `<register>`.
+`prnts <register>`: prints the null-terminated string which is pointed to by the value in `<register>`.
 
-`printu <register>`: prints the value in `<register>` as an unsigned 32-bit integer.
+`prntu <register>`: prints the value in `<register>` as an unsigned 32-bit integer.
 
-`printi <register>`: prints the value in `<register>` as a signed 32-bit integer.
+`prnti <register>`: prints the value in `<register>` as a signed 32-bit integer.
 
-`printf <register>`: prints the value in `<register>` as an IEEE-754 float. Not to be confused with libc function `printf()`.
+`prntf <register>`: prints the value in `<register>` as an IEEE-754 float. Not to be confused with libc function `printf()`.
 
-`printc <register>`: prints the value in `<register>` as a character.
+`prntc <register>`: prints the value in `<register>` as a character.
 
 `halt`: cease execution.
 

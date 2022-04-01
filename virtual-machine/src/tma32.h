@@ -2,6 +2,7 @@
 #define TMA32_H
 
 #include <vector>
+#include <stack>
 #include <cstdint>
 #include <array>
 
@@ -11,6 +12,8 @@ namespace tma32 {
 class VirtualMachine {
 
 private:
+  bool error;
+
   // RAM
   std::vector<uint32_t> memory;
 
@@ -25,7 +28,8 @@ private:
 
 public:
   VirtualMachine(const char* file_path);
-
+  void execute(void);
+  void print_registers(void);
 };
 
 } // end of namespace

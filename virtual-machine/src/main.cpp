@@ -8,6 +8,7 @@ int main(int argc, char *argv[]) {
   }
 
   tma32::VirtualMachine machine(argv[1]);
-
+  machine.execute();
+  machine.print_registers();
   return 0;
 }
